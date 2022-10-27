@@ -81,7 +81,7 @@ async function createImage(car, boost, weight, gun, gear, armor, wheel, fuel) {
   const meta = {
     name: `GameTBD Car ${carCode}`,
     description: 'A GameTBD Upgradable Car',
-    external_url: `https://gametbd.io/assets/ships/${carCode}.svg`,
+    external_url: `https://gametbd.io/assets/cars/${carCode}.svg`,
     image: `ipfs://${upload.path}`,
     attributes: [
       {
