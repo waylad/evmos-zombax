@@ -12,7 +12,7 @@ export class ConnectWalletScene extends Phaser.Scene {
   preload(): void {}
 
   create(): void {
-    const bg = this.add.image(this.sys.canvas.width / 2, this.sys.canvas.height / 2, 'bgHome')
+    const bg = this.add.image(this.sys.canvas.width / 2, this.sys.canvas.height / 2, 'bg-home')
     
     const buttonBg = this.add.image(this.sys.canvas.width / 2, this.sys.canvas.height / 2 + 250, 'button-big')
     buttonBg.setInteractive({cursor: 'pointer'})

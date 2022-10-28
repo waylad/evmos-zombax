@@ -55,13 +55,14 @@ export class PreloaderScene extends Phaser.Scene {
     this.load.script('webfont', 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js')
 
     this.load.image('background', './assets/background.png')
-    this.load.image('bgHome', './assets/bg-home.png')
+    this.load.image('bg-home', './assets/bg-home.png')
+    this.load.image('bg-garage', './assets/bg-garage.png')
 
+    this.load.svg('button-play', './assets/button-play.svg')
+    this.load.svg('car-bg', './assets/car-bg.svg')
     this.load.svg('button-big', './assets/button-big.svg')
+    this.load.svg('button-small', './assets/button-small.svg')
 
-    // Car Boost Weight Gun Gear Armor Wheel Fuel
-    // CBWGGAWF
-    // 01010330
 
     this.load.svg('car0', './assets/parts/car0.svg')
 
