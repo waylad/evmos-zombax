@@ -1,5 +1,7 @@
 import { state } from '../state/state'
 import { simplify } from './simplify'
+import Car from '../objects/car'
+
 import * as MatterJS from 'matter-js'
 // @ts-ignore: Property 'Matter' does not exist on type 'typeof Matter'.
 const Matter: typeof MatterJS = Phaser.Physics.Matter.Matter
@@ -17,6 +19,8 @@ export class GameScene extends Phaser.Scene {
   private diamond: any
   private frontWheel: any
   private rearWheel: any
+  private testWheel: any
+  private car: any
 
   constructor() {
     super({
@@ -27,6 +31,20 @@ export class GameScene extends Phaser.Scene {
   private preload(): void {}
 
   private create(): void {
+    this.car = new Car(this, 340, 0)
+    this.matter.world.on('collisionactive', (collisions: any, b: any, c: any) => {
+      this.car.wheelsDown = { rear: false, front: false }
+      collisions.pairs.forEach((pair: any) => {
+        let labels: string[] = [pair['bodyA'].label, pair['bodyB'].label]
+        if (labels.includes('wheelRear')) {
+          this.car.wheelsDown.rear = true
+        }
+        if (labels.includes('wheelFront')) {
+          this.car.wheelsDown.front = true
+        }
+      })
+    })
+
     // creation of pool arrays
     this.bodyPool = []
     this.rocksPool = []
@@ -341,7 +359,7 @@ export class GameScene extends Phaser.Scene {
       label: 'diamond',
     })
 
-    // add front wheel. A circle
+    // ---------------- add front wheel ---------------- //
     this.frontWheel = this.matter.add.circle(posX + 35, posY + 25, 30, {
       friction: 1,
       restitution: 0,
@@ -388,16 +406,68 @@ export class GameScene extends Phaser.Scene {
         y: 0,
       },
     })
+
+    // const frontWheelOffset = 35
+    // const rearWheelOffset = -35
+    // const wheelYOffset = 25
+    // const friction = 1
+    // const restitution = 0
+    // const density = 0.002
+    // const group = this.matter.world.nextGroup(true)
+
+    // this.frontWheel = this.matter.add.image(posX + frontWheelOffset, posY + wheelYOffset, 'wwwheel0', undefined)
+    // this.frontWheel.setScale(0.5)
+    // this.frontWheel.setBody(
+    //   {
+    //     type: 'circle',
+    //     radius: 30,
+    //   },
+    //   {
+    //     label: 'wheelRear',
+    //     collisionFilter: {
+    //       group: group,
+    //     },
+    //     friction,
+    //     density,
+    //   },
+    // )
+
+    // this.rearWheel = this.matter.add.image(posX + rearWheelOffset, posY + wheelYOffset, 'wwwheel0', undefined)
+    // this.rearWheel.setScale(0.5)
+    // this.rearWheel.setBody(
+    //   {
+    //     type: 'circle',
+    //     radius: 30,
+    //   },
+    //   {
+    //     label: 'wheelFront',
+    //     collisionFilter: {
+    //       group: group,
+    //     },
+    //     friction,
+    //     density,
+    //   },
+    // )
+
+    // let axelA = this.matter.add.constraint(this.body, this.frontWheel.body, 20, 0, {
+    //   pointA: { x: frontWheelOffset, y: wheelYOffset },
+    // })
+
+    // let axelB = this.matter.add.constraint(this.body, this.rearWheel.body, 20, 0, {
+    //   pointA: { x: rearWheelOffset, y: wheelYOffset },
+    // })
   }
 
   // method to accelerate
   accelerate() {
     this.isAccelerating = true
+    this.car.gas.right = true
   }
 
   // method to decelerate
   decelerate() {
     this.isAccelerating = false
+    this.car.gas.right = false
   }
 
   // method to apply a cosine interpolation between two points
@@ -407,6 +477,20 @@ export class GameScene extends Phaser.Scene {
   }
 
   public update(time: number, dt: number): void {
+    // // fix the camera to the car
+    // const carBody = this.car.bodies[0]
+    // this.cameras.main.centerOn(carBody.position.x + 200, carBody.position.y - 100)
+    // // set the smooth zoom
+    // const wheelRear = this.car.bodies[1]
+    // const currentZoom = this.cameras.main.zoom
+    // let zoom = 1 - wheelRear.angularVelocity / 2.5
+    // if (zoom > currentZoom + currentZoom * 0.002) zoom = currentZoom + currentZoom * 0.002
+    // else if (zoom < currentZoom - currentZoom * 0.002) zoom = currentZoom - currentZoom * 0.002
+    // if (zoom > 1) zoom = 1
+    // this.cameras.main.setZoom(zoom)
+    this.car.update()
+
+    
     // if wheels aren't colliding...
     if (!this.wheelsColliding) {
       // add frame delta time to flying time

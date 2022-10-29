@@ -4,6 +4,7 @@ import { ConnectWalletScene } from './scenes/connectWalletScene'
 import { GameScene } from './scenes/gameScene'
 import { GarageScene } from './scenes/garageScene'
 import { MarketplaceScene } from './scenes/MarketplaceScene'
+import MainScene from './scenes/mainScene'
 
 export const GameConfig: Phaser.Types.Core.GameConfig = {
   title: 'GameTBD',
@@ -23,6 +24,7 @@ export const GameConfig: Phaser.Types.Core.GameConfig = {
     GarageScene,
     GameScene,
     MarketplaceScene,
+    MainScene
   ],
   input: {
     keyboard: true,

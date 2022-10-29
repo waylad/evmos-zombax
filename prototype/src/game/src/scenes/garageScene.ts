@@ -42,6 +42,15 @@ export class GarageScene extends Phaser.Scene {
       partFuel,
     ])
 
+    const upgradeBoost = this.add.image(0, 0, 'boost')
+    const upgradeArmor = this.add.image(0, 0, 'armor')
+    const upgradeFuel = this.add.image(0, 0, 'fuel')
+    const upgradeGear = this.add.image(0, 0, 'gear')
+    const upgradeGun = this.add.image(0, 0, 'gun')
+    const upgradeWeight = this.add.image(0, 0, 'weight')
+    const upgradeWheel = this.add.image(0, 0, 'wheel')
+
+
     let buttonNext = this.add.image(this.sys.canvas.width - 200, this.sys.canvas.height - 300, 'button-play')
     buttonNext.setInteractive({ cursor: 'pointer' })
     // buttonNext.on('pointerover', () => buttonNext.setTexture('buttonNextHover'))

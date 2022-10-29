@@ -63,43 +63,48 @@ export class PreloaderScene extends Phaser.Scene {
     this.load.svg('button-big', './assets/button-big.svg')
     this.load.svg('button-small', './assets/button-small.svg')
 
+    this.load.svg('boost', './assets/upgrades/boost.svg')
+    this.load.svg('armor', './assets/upgrades/armor.svg')
+    this.load.svg('fuel', './assets/upgrades/fuel.svg')
+    this.load.svg('gear', './assets/upgrades/gear.svg')
+    this.load.svg('gun', './assets/upgrades/gun.svg')
+    this.load.svg('weight', './assets/upgrades/weight.svg')
+    this.load.svg('wheel', './assets/upgrades/wheel.svg')
+
+    this.load.image('wwwheel0', './assets/wheel0.png')
+    this.load.json('shapes', './assets/shapes.json')
 
     this.load.svg('car0', './assets/parts/car0.svg')
-
     this.load.svg('boost0', './assets/parts/boost0.svg')
     this.load.svg('boost1', './assets/parts/boost1.svg')
     this.load.svg('boost2', './assets/parts/boost2.svg')
     this.load.svg('boost3', './assets/parts/boost3.svg')
-
     this.load.svg('weight0', './assets/parts/weight0.svg')
     this.load.svg('weight1', './assets/parts/weight1.svg')
     this.load.svg('weight2', './assets/parts/weight2.svg')
     this.load.svg('weight3', './assets/parts/weight3.svg')
-
     this.load.svg('gun0', './assets/parts/gun0.svg')
     this.load.svg('gun1', './assets/parts/gun1.svg')
     this.load.svg('gun2', './assets/parts/gun2.svg')
     this.load.svg('gun3', './assets/parts/gun3.svg')
-
     this.load.svg('gear0', './assets/parts/gear0.svg')
     this.load.svg('gear1', './assets/parts/gear1.svg')
     this.load.svg('gear2', './assets/parts/gear2.svg')
     this.load.svg('gear3', './assets/parts/gear3.svg')
-
     this.load.svg('armor0', './assets/parts/armor0.svg')
     this.load.svg('armor1', './assets/parts/armor1.svg')
     this.load.svg('armor2', './assets/parts/armor2.svg')
     this.load.svg('armor3', './assets/parts/armor3.svg')
-
     this.load.svg('wheel0', './assets/parts/wheel0.svg')
     this.load.svg('wheel1', './assets/parts/wheel1.svg')
     this.load.svg('wheel2', './assets/parts/wheel2.svg')
     this.load.svg('wheel3', './assets/parts/wheel3.svg')
-
     this.load.svg('fuel0', './assets/parts/fuel0.svg')
     this.load.svg('fuel1', './assets/parts/fuel1.svg')
     this.load.svg('fuel2', './assets/parts/fuel2.svg')
     this.load.svg('fuel3', './assets/parts/fuel3.svg')
+
+    this.load.multiatlas('atlas', './assets/textureAtlas.json', 'assets')
   }
 
   create(): void {
