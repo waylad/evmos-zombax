@@ -72,7 +72,6 @@ export class PreloaderScene extends Phaser.Scene {
     this.load.svg('wheel', './assets/upgrades/wheel.svg')
 
     this.load.image('wwwheel0', './assets/wheel0.png')
-    this.load.json('shapes', './assets/shapes.json')
 
     this.load.svg('car0', './assets/parts/car0.svg')
     this.load.svg('boost0', './assets/parts/boost0.svg')
@@ -103,8 +102,6 @@ export class PreloaderScene extends Phaser.Scene {
     this.load.svg('fuel1', './assets/parts/fuel1.svg')
     this.load.svg('fuel2', './assets/parts/fuel2.svg')
     this.load.svg('fuel3', './assets/parts/fuel3.svg')
-
-    this.load.multiatlas('atlas', './assets/textureAtlas.json', 'assets')
   }
 
   create(): void {

@@ -1,8 +1,7 @@
 import { BodyType } from 'matter'
-import Restart from './restart'
 
 export default class Car {
-  readonly MAX_SPEED = 0.75
+  readonly MAX_SPEED = 1.75
   readonly MAX_SPEED_BACKWARDS = this.MAX_SPEED * 0.75
   readonly ACCELERATION = this.MAX_SPEED / 130
   readonly ACCELERATION_BACKWARDS = this.ACCELERATION * 0.75
@@ -24,8 +23,8 @@ export default class Car {
     y: number,
     width: number = 278,
     height: number = 100,
-    wheelSize: number = 50,
-    wheelOffset: { x: number; y: number } = { x: 62, y: 62 },
+    wheelSize: number = 30,
+    wheelOffset: { x: number; y: number } = { x: 42, y: 62 },
   ) {
     this._scene = scene
 
@@ -41,12 +40,15 @@ export default class Car {
 
     let group = scene.matter.world.nextGroup(true)
 
-    let body = scene.matter.add.image(x, y, 'atlas', 'car-body')
+    let body = scene.matter.add.image(x, y, 'car0')
+    body.setScale(0.5)
     body.setBody(
       {
-        type: 'rectangle',
-        width: width,
-        height: height,
+        // type: 'rectangle',
+        // width: width,
+        // height: height,
+        type: 'circle',
+        radius: 50,
       },
       {
         label: 'carBody',
@@ -60,7 +62,8 @@ export default class Car {
       },
     )
 
-    let wheelA = scene.matter.add.image(x + wheelAOffset, y + wheelYOffset, 'atlas', 'car-wheel')
+    let wheelA = scene.matter.add.image(x + wheelAOffset, y + wheelYOffset, 'wwwheel0')
+    wheelA.setScale(0.5)
     wheelA.setBody(
       {
         type: 'circle',
@@ -76,7 +79,8 @@ export default class Car {
       },
     )
 
-    let wheelB = scene.matter.add.image(x + wheelBOffset, y + wheelYOffset, 'atlas', 'car-wheel')
+    let wheelB = scene.matter.add.image(x + wheelBOffset, y + wheelYOffset, 'wwwheel0')
+    wheelB.setScale(0.5)
     wheelB.setBody(
       {
         type: 'circle',
@@ -110,9 +114,6 @@ export default class Car {
     const wheelRear = this.bodies[1]
     const wheelFront = this.bodies[2]
 
-    // restart the game if the car falls
-    if (carBody.position.y > 3000) Restart.restart(this._scene)
-
     let angularVelocity = 0.005
 
     if (this.gas.right) {
@@ -120,7 +121,7 @@ export default class Car {
       if (newSpeed > this.MAX_SPEED) newSpeed = this.MAX_SPEED
       Matter.Body.setAngularVelocity(wheelRear, newSpeed)
       Matter.Body.setAngularVelocity(wheelFront, newSpeed)
-      // if (!this.wheelsDown.rear && !this.wheelsDown.front) Matter.Body.setAngularVelocity(carBody, -angularVelocity)
+      if (!this.wheelsDown.rear || !this.wheelsDown.front) Matter.Body.setAngularVelocity(carBody, -angularVelocity)
     } else if (this.gas.left) {
       let newSpeed =
         wheelRear.angularSpeed <= 0
@@ -129,7 +130,7 @@ export default class Car {
       if (newSpeed > this.MAX_SPEED_BACKWARDS) newSpeed = this.MAX_SPEED_BACKWARDS
 
       Matter.Body.setAngularVelocity(wheelRear, -newSpeed)
-      // if (!this.wheelsDown.rear && !this.wheelsDown.front) Matter.Body.setAngularVelocity(carBody, angularVelocity)
+      if (!this.wheelsDown.rear || !this.wheelsDown.front) Matter.Body.setAngularVelocity(carBody, angularVelocity)
     }
   }
 }

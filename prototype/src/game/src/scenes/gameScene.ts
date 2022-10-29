@@ -21,17 +21,19 @@ export class GameScene extends Phaser.Scene {
   private rearWheel: any
   private testWheel: any
   private car: any
+  private cursors: any
 
-  constructor() {
+  constructor(aParams) {
     super({
       key: 'Game',
     })
+    // this.cursors = this.input.keyboard.createCursorKeys()
   }
 
   private preload(): void {}
 
   private create(): void {
-    this.car = new Car(this, 340, 0)
+    this.car = new Car(this, 200, 0)
     this.matter.world.on('collisionactive', (collisions: any, b: any, c: any) => {
       this.car.wheelsDown = { rear: false, front: false }
       collisions.pairs.forEach((pair: any) => {
@@ -65,14 +67,29 @@ export class GameScene extends Phaser.Scene {
     }
 
     // method to add the car, arguments represent x and y position
-    this.addCar(250, this.sys.canvas.height / 2 - 70)
+    // this.addCar(250, this.sys.canvas.height / 2 - 70)
 
     // the car is not accelerating
-    this.isAccelerating = false
+    // this.isAccelerating = false
 
     // input management
-    this.input.on('pointerdown', this.accelerate, this)
-    this.input.on('pointerup', this.decelerate, this)
+    // this.input.on('pointerdown', this.accelerate, this)
+    // this.input.on('pointerup', this.decelerate, this)
+    this.input.keyboard.on('keydown', function (event) {
+      console.dir(event)
+    })
+    this.input.keyboard.on('keydown-RIGHT', (event) => {
+      this.car.gas.right = true
+    })
+    this.input.keyboard.on('keyup-RIGHT', (event) => {
+      this.car.gas.right = false
+    })
+    this.input.keyboard.on('keydown-LEFT', (event) => {
+      this.car.gas.left = true
+    })
+    this.input.keyboard.on('keyup-LEFT', (event) => {
+      this.car.gas.left = false
+    })
 
     // collision check between the diamond and the car. Any other diamond collision is not allowed
     // this.matter.world.on(
@@ -84,37 +101,37 @@ export class GameScene extends Phaser.Scene {
     //   }.bind(this),
     // )
 
-    // a text to show when we are flying
-    this.flyingText = this.add
-      .text(100, 100, 'FLYING!!', {
-        fontFamily: 'Arial',
-        color: '#FF8800',
-      })
-      .setFontSize(128)
-    this.flyingText.setVisible(false)
+    // // a text to show when we are flying
+    // this.flyingText = this.add
+    //   .text(100, 100, 'FLYING!!', {
+    //     fontFamily: 'Arial',
+    //     color: '#FF8800',
+    //   })
+    //   .setFontSize(128)
+    // this.flyingText.setVisible(false)
 
-    // variable to count the time flying
-    this.flyingTime = 0
+    // // variable to count the time flying
+    // this.flyingTime = 0
 
-    // this event will check all active collisions
-    this.matter.world.on(
-      'collisionactive',
-      function (e: any) {
-        // no wheels colliding
-        this.wheelsColliding = false
+    // // this event will check all active collisions
+    // this.matter.world.on(
+    //   'collisionactive',
+    //   function (e: any) {
+    //     // no wheels colliding
+    //     this.wheelsColliding = false
 
-        // a collision made by a pair of bodies
-        e.pairs.forEach(
-          function (p: any) {
-            // if a colliding body's label is "wheel"...
-            if (p.bodyA.label == 'wheel' || p.bodyB.label == 'wheel') {
-              // at least a wheel is colliding
-              this.wheelsColliding = true
-            }
-          }.bind(this),
-        )
-      }.bind(this),
-    )
+    //     // a collision made by a pair of bodies
+    //     e.pairs.forEach(
+    //       function (p: any) {
+    //         // if a colliding body's label is "wheel"...
+    //         if (p.bodyA.label == 'wheel' || p.bodyB.label == 'wheel') {
+    //           // at least a wheel is colliding
+    //           this.wheelsColliding = true
+    //         }
+    //       }.bind(this),
+    //     )
+    //   }.bind(this),
+    // )
   }
 
   // method to generate the terrain. Arguments: the graphics object and the start position
@@ -406,67 +423,17 @@ export class GameScene extends Phaser.Scene {
         y: 0,
       },
     })
-
-    // const frontWheelOffset = 35
-    // const rearWheelOffset = -35
-    // const wheelYOffset = 25
-    // const friction = 1
-    // const restitution = 0
-    // const density = 0.002
-    // const group = this.matter.world.nextGroup(true)
-
-    // this.frontWheel = this.matter.add.image(posX + frontWheelOffset, posY + wheelYOffset, 'wwwheel0', undefined)
-    // this.frontWheel.setScale(0.5)
-    // this.frontWheel.setBody(
-    //   {
-    //     type: 'circle',
-    //     radius: 30,
-    //   },
-    //   {
-    //     label: 'wheelRear',
-    //     collisionFilter: {
-    //       group: group,
-    //     },
-    //     friction,
-    //     density,
-    //   },
-    // )
-
-    // this.rearWheel = this.matter.add.image(posX + rearWheelOffset, posY + wheelYOffset, 'wwwheel0', undefined)
-    // this.rearWheel.setScale(0.5)
-    // this.rearWheel.setBody(
-    //   {
-    //     type: 'circle',
-    //     radius: 30,
-    //   },
-    //   {
-    //     label: 'wheelFront',
-    //     collisionFilter: {
-    //       group: group,
-    //     },
-    //     friction,
-    //     density,
-    //   },
-    // )
-
-    // let axelA = this.matter.add.constraint(this.body, this.frontWheel.body, 20, 0, {
-    //   pointA: { x: frontWheelOffset, y: wheelYOffset },
-    // })
-
-    // let axelB = this.matter.add.constraint(this.body, this.rearWheel.body, 20, 0, {
-    //   pointA: { x: rearWheelOffset, y: wheelYOffset },
-    // })
   }
 
   // method to accelerate
   accelerate() {
-    this.isAccelerating = true
+    // this.isAccelerating = true
     this.car.gas.right = true
   }
 
   // method to decelerate
   decelerate() {
-    this.isAccelerating = false
+    // this.isAccelerating = false
     this.car.gas.right = false
   }
 
@@ -477,102 +444,114 @@ export class GameScene extends Phaser.Scene {
   }
 
   public update(time: number, dt: number): void {
-    // // fix the camera to the car
-    // const carBody = this.car.bodies[0]
-    // this.cameras.main.centerOn(carBody.position.x + 200, carBody.position.y - 100)
-    // // set the smooth zoom
-    // const wheelRear = this.car.bodies[1]
-    // const currentZoom = this.cameras.main.zoom
-    // let zoom = 1 - wheelRear.angularVelocity / 2.5
-    // if (zoom > currentZoom + currentZoom * 0.002) zoom = currentZoom + currentZoom * 0.002
-    // else if (zoom < currentZoom - currentZoom * 0.002) zoom = currentZoom - currentZoom * 0.002
-    // if (zoom > 1) zoom = 1
-    // this.cameras.main.setZoom(zoom)
+    // fix the camera to the car
+    const carBody = this.car.bodies[0]
+    this.cameras.main.centerOn(carBody.position.x + 200, carBody.position.y - 100)
+    // set the smooth zoom
+    const wheelRear = this.car.bodies[1]
+    const currentZoom = this.cameras.main.zoom
+    let zoom = 1 - wheelRear.angularVelocity / 2.5
+    if (zoom > currentZoom + currentZoom * 0.002) zoom = currentZoom + currentZoom * 0.002
+    else if (zoom < currentZoom - currentZoom * 0.002) zoom = currentZoom - currentZoom * 0.002
+    if (zoom > 1) zoom = 1
+    this.cameras.main.setZoom(zoom)
     this.car.update()
 
-    
-    // if wheels aren't colliding...
-    if (!this.wheelsColliding) {
-      // add frame delta time to flying time
-      this.flyingTime += dt
+    // if (this.cursors.right.isDown) {
+    //   this.car.gas.right = true
+    // }
+    // if (!this.cursors.right.isDown) {
+    //   this.car.gas.right = false
+    // }
+    // if (this.cursors.left.isDown) {
+    //   this.car.gas.left = true
+    // }
+    // if (!this.cursors.left.isDown) {
+    //   this.car.gas.left = false
+    // }
 
-      // we can say the car is flying when it's in the air for more than 0.5 seconds
-      if (this.flyingTime > 500) {
-        // show flying text
-        this.flyingText.setVisible(true)
-      }
-    }
+    // // if wheels aren't colliding...
+    // if (!this.wheelsColliding) {
+    //   // add frame delta time to flying time
+    //   this.flyingTime += dt
 
-    // if wheels aren colliding...
-    else {
-      // reset flying time
-      this.flyingTime = 0
+    //   // we can say the car is flying when it's in the air for more than 0.5 seconds
+    //   if (this.flyingTime > 500) {
+    //     // show flying text
+    //     this.flyingText.setVisible(true)
+    //   }
+    // }
 
-      // hide flying text
-      this.flyingText.setVisible(false)
-    }
+    // // if wheels aren colliding...
+    // else {
+    //   // reset flying time
+    //   this.flyingTime = 0
 
-    // zoom is calculated according to car speed.
-    // zoom = 1: no zoom
-    // zoom > 1: zoom in
-    // zoom < 1: zoom out
-    let zoom = 1 - Phaser.Math.Clamp(this.body.speed, 0, 15) / 25
+    //   // hide flying text
+    //   this.flyingText.setVisible(false)
+    // }
 
-    // zoomTo method allows the camera to zoom at "zoom" ratio in 1000 milliseconds
-    // the most important argument is the 4th argument.
-    // If set to "false", camera won't adjust its zoom if already zooming.
-    this.cameras.main.zoomTo(zoom, 1000, 'Linear', false)
+    // // // zoom is calculated according to car speed.
+    // // // zoom = 1: no zoom
+    // // // zoom > 1: zoom in
+    // // // zoom < 1: zoom out
+    // // let zoom = 1 - Phaser.Math.Clamp(this.body.speed, 0, 15) / 25
 
-    // make the game follow the car
-    this.cameras.main.scrollX =
-      this.body.position.x - this.sys.canvas.width / 4 + this.sys.canvas.width * (1 - this.cameras.main.zoom)
-    this.cameras.main.scrollY = this.body.position.y - this.sys.canvas.height / 2.2
+    // // // zoomTo method allows the camera to zoom at "zoom" ratio in 1000 milliseconds
+    // // // the most important argument is the 4th argument.
+    // // // If set to "false", camera won't adjust its zoom if already zooming.
+    // // this.cameras.main.zoomTo(zoom, 1000, 'Linear', false)
 
-    // flyingText too should follow the car
-    this.flyingText.x = 100 + this.cameras.main.scrollX
+    // // // make the game follow the car
+    // // this.cameras.main.scrollX =
+    // //   this.body.position.x - this.sys.canvas.width / 4 + this.sys.canvas.width * (1 - this.cameras.main.zoom)
+    // // this.cameras.main.scrollY = this.body.position.y - this.sys.canvas.height / 2.2
 
-    // adjust velocity according to acceleration
-    if (this.isAccelerating) {
-      let velocity = this.frontWheel.angularSpeed + state.carAcceleration
-      velocity = Phaser.Math.Clamp(velocity, 0, state.maxCarVelocity)
+    // // flyingText too should follow the car
+    // this.flyingText.x = 100 + this.cameras.main.scrollX
 
-      // set angular velocity to wheels
-      this.matter.body.setAngularVelocity(this.frontWheel, velocity)
-      this.matter.body.setAngularVelocity(this.rearWheel, velocity)
-    }
+    // // adjust velocity according to acceleration
+    // if (this.isAccelerating) {
+    //   let velocity = this.frontWheel.angularSpeed + state.carAcceleration
+    //   velocity = Phaser.Math.Clamp(velocity, 0, state.maxCarVelocity)
+
+    //   // set angular velocity to wheels
+    //   this.matter.body.setAngularVelocity(this.frontWheel, velocity)
+    //   this.matter.body.setAngularVelocity(this.rearWheel, velocity)
+    // }
 
     // loop through all mountains
     this.mountainGraphics.forEach(
       function (item: any) {
         // if the mountain leaves the screen to the left...
-        if (this.cameras.main.scrollX > item.x + item.width + this.sys.canvas.width) {
+        if (this.cameras.main.scrollX > item.x + item.width + this.sys.canvas.width - 1000) {
           // reuse the mountain
           this.mountainStart = this.generateTerrain(item, this.mountainStart)
         }
       }.bind(this),
     )
 
-    // get all bodies
-    // @ts-ignore
-    let bodies = this.matter.world.localWorld.bodies
+    // // get all bodies
+    // // @ts-ignore
+    // let bodies = this.matter.world.localWorld.bodies
 
-    // loop through all bodies
-    bodies.forEach(
-      function (body: any) {
-        // if the body is out of camera view to the left side and is not yet in the pool..
-        if (this.cameras.main.scrollX > body.position.x + this.sys.canvas.width && !body.inPool) {
-          // ...add the body to proper pool
-          switch (body.label) {
-            case 'ground':
-              this.bodyPool.push(body)
-              break
-            case 'rock':
-              this.rocksPool.push(body)
-              break
-          }
-          body.inPool = true
-        }
-      }.bind(this),
-    )
+    // // loop through all bodies
+    // bodies.forEach(
+    //   function (body: any) {
+    //     // if the body is out of camera view to the left side and is not yet in the pool..
+    //     if (this.cameras.main.scrollX > body.position.x + this.sys.canvas.width && !body.inPool) {
+    //       // ...add the body to proper pool
+    //       switch (body.label) {
+    //         case 'ground':
+    //           this.bodyPool.push(body)
+    //           break
+    //         case 'rock':
+    //           this.rocksPool.push(body)
+    //           break
+    //       }
+    //       body.inPool = true
+    //     }
+    //   }.bind(this),
+    // )
   }
 }
