@@ -1,13 +1,32 @@
-# NameTBD
-Kill zombies! Upgrade your vehicule! Kill more zombies!
+# Battle NEVs
+Kill zombies! Upgrade your NEV! Kill more zombies!
 
-# Game Design Planning
-The goal is to create a game similar to `Earn to Die 2`, a very popular game wth more than 100M+ of downloads : https://play.google.com/store/apps/details?id=com.notdoppler.earntodie2 
+---
 
-# Game Feature Design
+## Game Design Planning
+Presentation Video: [game-design-planning.mp4](https://youtu.be)
 
-# Concept Art Design
+PDF: [game-design-planning.pdf](game-design-planning.pdf)
 
-# Monetization Model Design
+---
 
-# Prototype
+## Game Feature Design
+PDF: [game-feature-design.pdf](game-feature-design.pdf)
+
+---
+
+## Concept Art Design
+PDF: [concept-art-design.pdf](concept-art-design.pdf)
+
+---
+
+## Monetization Model Design
+PDF: [monetization-model-design.pdf](monetization-model-design.pdf)
+
+---
+
+## Prototype
+As a developer, I couldn't help but start developing a working prototype of the game! So here it is :
+https://battlenev.pages.dev/
+
+To play de prototype, you'll need to install `metamask`, connect it to the `Goerli` testnet and have some tokens (You can use [this faucet](https://goerli-faucet.pk910.de/) or [this faucet](https://goerli-faucet.mudit.blog/))

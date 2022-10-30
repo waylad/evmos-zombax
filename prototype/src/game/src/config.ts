@@ -6,8 +6,8 @@ import { GarageScene } from './scenes/garageScene'
 import { MarketplaceScene } from './scenes/MarketplaceScene'
 
 export const GameConfig: Phaser.Types.Core.GameConfig = {
-  title: 'GameTBD',
-  url: 'https://gametbd.io',
+  title: 'BattleNEVs',
+  url: 'https://battlenevs.io',
   version: '3.0',
   type: Phaser.AUTO,
   scale: {
@@ -27,7 +27,7 @@ export const GameConfig: Phaser.Types.Core.GameConfig = {
   physics: {
     default: 'matter',
     matter: {
-      debug: true,
+      debug: false,
     },
   },
   backgroundColor: '#000000',

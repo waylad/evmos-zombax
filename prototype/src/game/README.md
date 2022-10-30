@@ -1,4 +1,4 @@
-# Phaser game for GameTBD
+# Phaser game for BattleNEVs
 
 To start the game:
 

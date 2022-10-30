@@ -79,9 +79,9 @@ async function createImage(car, boost, weight, gun, gear, armor, wheel, fuel) {
 
   // Step 3: Generate Metadata
   const meta = {
-    name: `GameTBD Car ${carCode}`,
-    description: 'A GameTBD Upgradable Car',
-    external_url: `https://gametbd.io/assets/cars/${carCode}.svg`,
+    name: `BattleNEVs Car ${carCode}`,
+    description: 'A BattleNEVs Upgradable Car',
+    external_url: `https://battlenevs.io/assets/cars/${carCode}.svg`,
     image: `ipfs://${upload.path}`,
     attributes: [
       {

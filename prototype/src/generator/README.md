@@ -1,6 +1,6 @@
 # Cars Generator
 
-The GameTBD car image and metadata generator from multiple parts, and IPFS uploader.
+The BattleNEVs car image and metadata generator from multiple parts, and IPFS uploader.
 
 ## Usage
 
