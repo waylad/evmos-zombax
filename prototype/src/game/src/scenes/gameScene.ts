@@ -75,9 +75,6 @@ export class GameScene extends Phaser.Scene {
     // input management
     // this.input.on('pointerdown', this.accelerate, this)
     // this.input.on('pointerup', this.decelerate, this)
-    this.input.keyboard.on('keydown', function (event) {
-      console.dir(event)
-    })
     this.input.keyboard.on('keydown-RIGHT', (event) => {
       this.car.gas.right = true
     })
