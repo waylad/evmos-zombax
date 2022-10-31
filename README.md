@@ -1,10 +1,11 @@
 # Battle NEVs
 Kill zombies! Upgrade your NEV! Kill more zombies!
 
+![](prototype/src/game//assets/bg-home.png)
 ---
 
 ## Game Design Planning
-Presentation Video: [game-design-planning.mp4](https://youtu.be)
+Presentation Video: [game-design-planning.mp4](https://youtu.be/0d2pJJwC5aY)
 
 PDF: [game-design-planning.pdf](game-design-planning.pdf)
 
