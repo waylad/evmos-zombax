@@ -88,15 +88,15 @@ We created an ERC721 smart contract for the SMASHERs and added metadata upgradab
 To play de prototype, you'll need to install metamask, connect it to the `Trust Testnet` and have some tokens to buy a SMASHER NFT (You can use this faucet or this faucet)
 
 # Todo list
-SMASHER D-NFT ERC721 + Marketplace Contract ✅
-SMASHER COIN ERC20 Contract ✅
-LEVELS NT-NFT ERC721 + Marketplace Contract ❌ (3-7 days to complete)
-In-game SMASHER marketplace ✅
-In-game Levels marketplace ❌ (9-13 days to complete)
-Physics Sandbox ✅
-Pilot your SMASHER NFT ✅
-Implement a full level ❌ (I already got some level background and zombie designs from Robson but will need much more to actually complete a level)
-Implement multiples levels, multiples SMASHERs with their upgrades ❌ (This is where most of the budget will go. All the technical pieces are in place, now we just need to fill the game with content)
+- SMASHER D-NFT ERC721 + Marketplace Contract ✅
+- SMASHER COIN ERC20 Contract ✅
+- LEVELS NT-NFT ERC721 + Marketplace Contract ❌ (3-7 days to complete)
+- In-game SMASHER marketplace ✅
+- In-game Levels marketplace ❌ (9-13 days to complete)
+- Physics Sandbox ✅
+- Pilot your SMASHER NFT ✅
+- Implement a full level ❌ (I already got some level background and zombie designs from Robson but will need much more to actually complete a level)
+- Implement multiples levels, multiples SMASHERs with their upgrades ❌ (This is where most of the budget will go. All the technical pieces are in place, now we just need to fill the game with content)
 
 # Contact me
 I’m a freelance developer and would love to keep working on the game. If you any question, don't hesite to contsact me.
@@ -104,4 +104,7 @@ I’m a freelance developer and would love to keep working on the game. If you a
 Email: waylad42@gmail.com
 Discord: waylad#4756
 
+# Source code
+I have included the source code for the judges in the `Additional Info` section.
 
+![](https://zombie-smash.pages.dev/assets/screenshots/level-bg.png)
