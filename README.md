@@ -3,7 +3,7 @@
 ![](https://zombie-smash.pages.dev/assets/screenshots/demo2.png)
 
 # Demo Video
-
+https://youtu.be/mUSLjh8vNU8
 
 # Concept
 You and your SMASHER have to cross over the USA to deliver an important package. The only issue: It’s full of zombies!
