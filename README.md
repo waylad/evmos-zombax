@@ -1,21 +1,21 @@
 ## Zombie Smash
 ![](https://zombie-smash.pages.dev/assets/screenshots/home.png)
-![](https://zombie-smash.pages.dev/assets/screenshots/demo.png)
+![](https://zombie-smash.pages.dev/assets/screenshots/demo2.png)
 
 # Demo Video
-https://youtu.be/UZ6J4mlkxgw
+
 
 # Concept
 You and your SMASHER have to cross over the USA to deliver an important package. The only issue: It’s full of zombies!
-The game is a 2D car game that will make you go from one point to another while smashing and killing zombies on your way. It is inspired from the very popular Earn to Die 2 game that has more than 100M+ downloads on Android alone. Here is a trailer for the game.
+The game is a 2D car game that will make you go from one point to another while smashing and killing zombies on your way. It is inspired from the very popular [Earn to Die 2](https://play.google.com/store/apps/details?id=com.notdoppler.earntodie2) game that has more than 100M+ downloads on Android alone. 
 We propose to create a similar game where your car is a SMASHER NFT on-chain. 
 
 # Mood Board
 The following Mood Board contains pictures courtesy of Earn To Die 2
-![](https://zombie-smash.pages.dev/assets/screenshots/mood.png)
+![](https://zombie-smash.pages.dev/assets/screenshots/mood2.png)
 
 # Designing smashers, upgrades, backgrounds, etc…
-We hired artist Robson Teixeira to create everything we’ll need for our game: smashers, garage, the upgradable elements and some elements of the game. Next slide is the proof from fiverr.com. We have paid him 621.17 euros so far to originally design all you’re going to see in the next slides. We own their full copyrights.
+We hired artist Robson Teixeira to create everything we’ll need for our game: smashers, garage, the upgradable elements and some elements of the game. Next  is the proof from fiverr.com. We have paid him 621.17 euros so far to originally design all you’re going to see next. We own their full copyrights.
 ![](https://zombie-smash.pages.dev/assets/screenshots/fiverr.png)
 
 # Getting started
@@ -31,7 +31,7 @@ Once you have purchased a SMASHER, you can select it and access the garage where
 Once you have enough SMASHER Coins, you can upgrade your NFT SMASHER on-chain with new weapons, armor, wheels, etc and make it the perfect zombie killing machine.
 ![](https://zombie-smash.pages.dev/assets/screenshots/garage-scene2.png)
 
-# 2387
+# 2187
 That’s the number of unique combination your SMASHER NFT can have already, and we’re just getting started!
 ![](https://zombie-smash.pages.dev/assets/screenshots/configs.png)
 
@@ -48,7 +48,7 @@ An this is SMASHER 1220132
 When upgrading a SMASHER NFT, we simply change the code in its metadata on-chain so the TokenURI points to the new pre-rendered configuration.
 
 # The Map
-Each level is also a token! Its metadata contains the configuration of the level from the shape of the terrain to the position and strength of each zombie. Why is that? Because BattleSMASHERs is a metaverse when people can create and sell levels! From the map, you can see all levels and their ratings. The map will itself be another marketplace but for levels. You will be able to see the ratings of each level just like Happy Wheels (See next slide) so you can choose to purchase a level or not. Levels are NT-NFT, Non-Transfer NFT, you purchase them directly from its creator then you can play the level, but never resell it. 
+Each level is also a token! Its metadata contains the configuration of the level from the shape of the terrain to the position and strength of each zombie. Why is that? Because BattleSMASHERs is a metaverse when people can create and sell levels! From the map, you can see all levels and their ratings. The map will itself be another marketplace but for levels. You will be able to see the ratings of each level just like Happy Wheels (See next) so you can choose to purchase a level or not. Levels are NT-NFT, Non-Transfer NFT, you purchase them directly from its creator then you can play the level, but never resell it. 
 
 ![](https://zombie-smash.pages.dev/assets/screenshots/happy-wheels.jpeg)
 Image courtesy of Happy Wheels
@@ -103,7 +103,7 @@ To play de prototype, you'll need to install metamask, connect it to the `Trust 
 I’m a freelance developer and would love to keep working on the game. If you any question, don't hesite to contsact me.
 
 Email: waylad42@gmail.com
+
 Discord: waylad#4756
 
-# Source code
-I have included the source code for the judges in the `Additional Info` section.
+![](https://zombie-smash.pages.dev/assets/screenshots/zombie.png)
