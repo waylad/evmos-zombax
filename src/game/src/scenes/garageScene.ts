@@ -1,3 +1,4 @@
+import { upgradeCar } from '../blockchain/lib'
 import { state } from '../state/state'
 
 export class GarageScene extends Phaser.Scene {
@@ -24,8 +25,8 @@ export class GarageScene extends Phaser.Scene {
       'bg-garage',
     )
 
+    // CBWGGAWF
     const car = state.currentCar!
-
     let indexCar = parseInt(car.carCode[0])
     let indexBoost = parseInt(car.carCode[1])
     let indexWeight = parseInt(car.carCode[2])
@@ -62,65 +63,73 @@ export class GarageScene extends Phaser.Scene {
       state.currentCar!.carCode = this.replaceAt(state.currentCar!.carCode, 1, `${indexBoost}`)
       partBoost.setTexture(`boost${indexBoost}`)
       upgradeBoost.setTexture(`upgradeBoost${indexBoost}`)
-    })
-
-    const upgradeArmor = this.add.image(361, 765, `upgradeArmor${indexArmor}`)
-    upgradeArmor.setInteractive({ cursor: 'pointer' })
-    upgradeArmor.on('pointerdown', () => {
-      indexArmor < 3 ? indexArmor += 1 : indexArmor = 0;
-      state.currentCar!.carCode = this.replaceAt(state.currentCar!.carCode, 1, `${indexArmor}`)
-      partArmor.setTexture(`armor${indexArmor}`)
-      upgradeArmor.setTexture(`upgradeArmor${indexArmor}`)
-    })
-
-    const upgradeFuel = this.add.image(580, 765, `upgradeFuel${indexFuel}`)
-    upgradeFuel.setInteractive({ cursor: 'pointer' })
-    upgradeFuel.on('pointerdown', () => {
-      indexFuel < 3 ? indexFuel += 1 : indexFuel = 0;
-      state.currentCar!.carCode = this.replaceAt(state.currentCar!.carCode, 1, `${indexFuel}`)
-      partFuel.setTexture(`fuel${indexFuel}`)
-      upgradeFuel.setTexture(`upgradeFuel${indexFuel}`)
-    })
-
-    const upgradeGear = this.add.image(798, 765, `upgradeGear${indexGear}`)
-    upgradeGear.setInteractive({ cursor: 'pointer' })
-    upgradeGear.on('pointerdown', () => {
-      indexGear < 3 ? indexGear += 1 : indexGear = 0;
-      state.currentCar!.carCode = this.replaceAt(state.currentCar!.carCode, 1, `${indexGear}`)
-      partGear.setTexture(`gear${indexGear}`)
-      upgradeGear.setTexture(`upgradeGear${indexGear}`)
-    })
-
-    const upgradeGun = this.add.image(1007, 765, `upgradeGun${indexGun}`)
-    upgradeGun.setInteractive({ cursor: 'pointer' })
-    upgradeGun.on('pointerdown', () => {
-      indexGun < 3 ? indexGun += 1 : indexGun = 0;
-      state.currentCar!.carCode = this.replaceAt(state.currentCar!.carCode, 1, `${indexGun}`)
-      partGun.setTexture(`gun${indexGun}`)
-      upgradeGun.setTexture(`upgradeGun${indexGun}`)
+      upgradeCar(state.currentCar!)
     })
 
     const upgradeWeight = this.add.image(1236, 765, `upgradeWeight${indexWeight}`)
     upgradeWeight.setInteractive({ cursor: 'pointer' })
     upgradeWeight.on('pointerdown', () => {
       indexWeight < 3 ? indexWeight += 1 : indexWeight = 0;
-      state.currentCar!.carCode = this.replaceAt(state.currentCar!.carCode, 1, `${indexWeight}`)
+      state.currentCar!.carCode = this.replaceAt(state.currentCar!.carCode, 2, `${indexWeight}`)
       partWeight.setTexture(`weight${indexWeight}`)
       upgradeWeight.setTexture(`upgradeWeight${indexWeight}`)
+      upgradeCar(state.currentCar!)
+    })
+
+    const upgradeGun = this.add.image(1007, 765, `upgradeGun${indexGun}`)
+    upgradeGun.setInteractive({ cursor: 'pointer' })
+    upgradeGun.on('pointerdown', () => {
+      indexGun < 3 ? indexGun += 1 : indexGun = 0;
+      state.currentCar!.carCode = this.replaceAt(state.currentCar!.carCode, 3, `${indexGun}`)
+      partGun.setTexture(`gun${indexGun}`)
+      upgradeGun.setTexture(`upgradeGun${indexGun}`)
+      upgradeCar(state.currentCar!)
+    })
+
+    const upgradeGear = this.add.image(798, 765, `upgradeGear${indexGear}`)
+    upgradeGear.setInteractive({ cursor: 'pointer' })
+    upgradeGear.on('pointerdown', () => {
+      indexGear < 3 ? indexGear += 1 : indexGear = 0;
+      state.currentCar!.carCode = this.replaceAt(state.currentCar!.carCode, 4, `${indexGear}`)
+      partGear.setTexture(`gear${indexGear}`)
+      upgradeGear.setTexture(`upgradeGear${indexGear}`)
+      upgradeCar(state.currentCar!)
+    })
+
+    const upgradeArmor = this.add.image(361, 765, `upgradeArmor${indexArmor}`)
+    upgradeArmor.setInteractive({ cursor: 'pointer' })
+    upgradeArmor.on('pointerdown', () => {
+      indexArmor < 3 ? indexArmor += 1 : indexArmor = 0;
+      state.currentCar!.carCode = this.replaceAt(state.currentCar!.carCode, 5, `${indexArmor}`)
+      partArmor.setTexture(`armor${indexArmor}`)
+      upgradeArmor.setTexture(`upgradeArmor${indexArmor}`)
+      upgradeCar(state.currentCar!)
     })
 
     const upgradeWheel = this.add.image(1454, 765, `upgradeWheel${indexWheel}`)
     upgradeWheel.setInteractive({ cursor: 'pointer' })
     upgradeWheel.on('pointerdown', () => {
       indexWheel < 3 ? indexWheel += 1 : indexWheel = 0;
-      state.currentCar!.carCode = this.replaceAt(state.currentCar!.carCode, 1, `${indexWheel}`)
+      state.currentCar!.carCode = this.replaceAt(state.currentCar!.carCode, 6, `${indexWheel}`)
       partWheel.setTexture(`wheel${indexWheel}`)
       upgradeWheel.setTexture(`upgradeWheel${indexWheel}`)
+      upgradeCar(state.currentCar!)
+    })
+
+    const upgradeFuel = this.add.image(580, 765, `upgradeFuel${indexFuel}`)
+    upgradeFuel.setInteractive({ cursor: 'pointer' })
+    upgradeFuel.on('pointerdown', () => {
+      indexFuel < 3 ? indexFuel += 1 : indexFuel = 0;
+      state.currentCar!.carCode = this.replaceAt(state.currentCar!.carCode, 7, `${indexFuel}`)
+      partFuel.setTexture(`fuel${indexFuel}`)
+      upgradeFuel.setTexture(`upgradeFuel${indexFuel}`)
+      upgradeCar(state.currentCar!)
     })
 
     let buttonNext = this.add.image(this.sys.canvas.width - 200, this.sys.canvas.height - 300, 'button-play')
     buttonNext.setInteractive({ cursor: 'pointer' })
     buttonNext.on('pointerdown', () => {
+      this.scene.start('Bg')
       this.scene.start('Game')
     })
   }

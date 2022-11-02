@@ -57,11 +57,13 @@ export class PreloaderScene extends Phaser.Scene {
     this.load.image('background', './assets/background.png')
     this.load.image('bg-home', './assets/bg-home.png')
     this.load.image('bg-garage', './assets/bg-garage.png')
+    this.load.image('bg-level', './assets/bg-level.png')
 
     this.load.svg('button-play', './assets/button-play.svg')
     this.load.svg('car-bg', './assets/car-bg.svg')
     this.load.svg('button-big', './assets/button-big.svg')
     this.load.svg('button-small', './assets/button-small.svg')
+    this.load.svg('button-garage', './assets/button-garage.svg')
 
     this.load.svg('upgradeBoost0', './assets/upgrades/boost0.svg')
     this.load.svg('upgradeArmor0', './assets/upgrades/armor0.svg')
@@ -92,7 +94,11 @@ export class PreloaderScene extends Phaser.Scene {
     this.load.svg('upgradeWeight3', './assets/upgrades/weight3.svg')
     this.load.svg('upgradeWheel3', './assets/upgrades/wheel3.svg')
 
-    this.load.image('wwwheel0', './assets/wheel0.png')
+    this.load.image('singleWheel0', './assets/wheel0.svg')
+    this.load.image('singleWheel1', './assets/wheel1.svg')
+    this.load.image('singleWheel2', './assets/wheel2.svg')
+    this.load.image('singleWheel3', './assets/wheel3.svg')
+    this.load.image('zombie', './assets/zombie.svg')
 
     this.load.svg('car0', './assets/parts/car0.svg')
     this.load.svg('boost0', './assets/parts/boost0.svg')

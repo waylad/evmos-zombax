@@ -4,6 +4,7 @@ import { ConnectWalletScene } from './scenes/connectWalletScene'
 import { GameScene } from './scenes/gameScene'
 import { GarageScene } from './scenes/garageScene'
 import { MarketplaceScene } from './scenes/MarketplaceScene'
+import { BgScene } from './scenes/bgScene'
 
 export const GameConfig: Phaser.Types.Core.GameConfig = {
   title: 'ZombieSmash',
@@ -17,7 +18,7 @@ export const GameConfig: Phaser.Types.Core.GameConfig = {
     width: 1600,
     height: 900,
   },
-  scene: [PreloaderScene, ConnectWalletScene, GarageScene, GameScene, MarketplaceScene],
+  scene: [PreloaderScene, BgScene, ConnectWalletScene, GarageScene, GameScene, MarketplaceScene],
   input: {
     keyboard: true,
     mouse: true,
