@@ -23,7 +23,7 @@ contract Cars is ERC721, Ownable, ReentrancyGuard {
         bool isOnSale;
     }
 
-    constructor() ERC721("ZombieSmash Cars", "CAR") {}
+    constructor() ERC721("Zombax Cars", "CAR") {}
 
     function _baseURI() internal view virtual override returns (string memory) {
         return baseURI;

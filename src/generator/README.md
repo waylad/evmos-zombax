@@ -1,6 +1,6 @@
 # Cars Generator
 
-The ZombieSmash car image and metadata generator from multiple parts, and IPFS uploader.
+The Zombax car image and metadata generator from multiple parts, and IPFS uploader.
 
 ## Usage
 

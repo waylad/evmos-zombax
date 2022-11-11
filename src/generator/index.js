@@ -79,9 +79,9 @@ async function createImage(car, boost, weight, gun, gear, armor, wheel, fuel) {
 
   // Step 3: Generate Metadata
   const meta = {
-    name: `ZombieSmash Car ${carCode}`,
-    description: 'A ZombieSmash Upgradable Car',
-    external_url: `https://zombiesmash.io/assets/cars/${carCode}.svg`,
+    name: `Zombax Car ${carCode}`,
+    description: 'A Zombax Upgradable Car',
+    external_url: `https://zombax.io/assets/cars/${carCode}.svg`,
     image: `ipfs://${upload.path}`,
     attributes: [
       {

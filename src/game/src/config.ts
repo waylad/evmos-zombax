@@ -7,8 +7,8 @@ import { MarketplaceScene } from './scenes/MarketplaceScene'
 import { BgScene } from './scenes/bgScene'
 
 export const GameConfig: Phaser.Types.Core.GameConfig = {
-  title: 'ZombieSmash',
-  url: 'https://zombiesmash.io',
+  title: 'Zombax',
+  url: 'https://zombax.io',
   version: '3.0',
   type: Phaser.AUTO,
   scale: {

@@ -1,4 +1,4 @@
-# Phaser game for ZombieSmash
+# Phaser game for Zombax
 
 To start the game:
 
