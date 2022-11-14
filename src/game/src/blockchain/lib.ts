@@ -8,21 +8,23 @@ declare var window: any
 const contractAddress = "TSyAsSP1SoUpiVi2ouaydnLFpZHo92Pkxe"
 const contractAddressHex = "41ba785befeba720d17297e14a125cc481d0c0ece3"
 let contractInstance;
-let address;
 
 export const connectWallet = async () => {
-    address = window.tronWeb.defaultAddress.base58
-    console.log(address)
+  const tronLink = await getTronLink()
+  const res: any = await tronLink?.request({ method: 'tron_requestAccounts' })
 
-    if(address) {
-      const tronLink = await getTronLink()
-      const res: any = await tronLink?.request({ method: 'tron_requestAccounts' })
-      console.log(res)
-      
+  if(res) {
+    try{
       contractInstance = tronLink?.tronWeb.contract(ZombaxAbi.abi, contractAddress)
-    } else {
-     alert("Please unlock your Tronlink Wallet ")
+      const name = await contractInstance.name().call()
+      console.log(name)
+    } catch (e: any) {
+      console.log(e)
+       alert("Please connect to the Nile Testnet ")
     }
+  } else {
+    alert("Please unlock your Tronlink Wallet ")
+  }
 
     // await contractInstance.mintCollectable(address, "https://zombax.io/assets/cars/00000000.json", "Genesis Car", 30000000, true).send({
     //   callValue: 0,
