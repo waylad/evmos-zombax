@@ -25,7 +25,7 @@ export class MarketplaceScene extends Phaser.Scene {
     const partFuel = this.add.image(0, 0, `fuel${car.carCode[7]}`)
 
     const textPrice = this.add
-      .text(20, 145, `${car.price / 1000000000} Ξ`, {
+      .text(20, 145, `${car.price / 1000000} TRX`, {
         fontFamily: 'Electrolize',
         align: 'center',
         wordWrap: { width: 140, useAdvancedWrap: true },
@@ -78,7 +78,7 @@ export class MarketplaceScene extends Phaser.Scene {
     if (car.owned) buttonSell = this.add.image(80, 160, 'button-small')
     buttonSell.setInteractive({ cursor: 'pointer' })
     buttonSell.on('pointerdown', async () => {
-      const price = parseInt(prompt('Please enter your price', '1') || '1')
+      const price = parseInt(prompt('Please enter your price', '1000000') || '1000000')
       await sellCar(car, price)
       await getCars()
     })

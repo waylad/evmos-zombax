@@ -6,7 +6,7 @@ Zombax is zombie smashing game on Tron with upgradable NFTs and an integrated ma
 ![](https://zombax.io/assets/screenshots/demo2.png)
 
 # Demo Video
-Coming soon...
+https://youtu.be/iIVLwyd3eg8
 
 # Concept
 You and your SMASHER have to cross over the USA to deliver an important package. The only issue: It’s full of zombies!
@@ -44,7 +44,6 @@ We prerender all combinations of SMASHER and assign it a code. Each digit corres
 For instance: This is SMASHER 0000000
 ![](https://zombax.io/assets/screenshots/config1.png)
 
-# How it works?
 An this is SMASHER 1220132 
 ![](https://zombax.io/assets/screenshots/config2.png)
 
@@ -75,7 +74,7 @@ We are far from done but we have already coded the basics of the project, availa
 https://zombax.io
 
 We created an TRC721 smart contract for the SMASHERs and added metadata upgradability and marketplace functionalities. We also developed the first part of the game using the Phaser.js engine. The marketplace and garage are fully functional and you can already pilot your SMASHER in a physics sandbox (that is empty so far)
-To play de prototype, you'll need to install Tronlink, connect it to the `Tron Nile Testnet` and have some tokens to buy a SMASHER NFT (You can use this faucet or this faucet)
+To play de prototype, you'll need to install Tronlink, connect it to the `Tron Nile Testnet` and have some tokens to buy a SMASHER NFT.
 
 # Todo list
 - SMASHER D-NFT TRC721 + Marketplace Contract ✅
