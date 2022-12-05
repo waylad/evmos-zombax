@@ -1,5 +1,7 @@
-import "@nomicfoundation/hardhat-toolbox";
 import { config as dotenvConfig } from "dotenv";
+
+import "@nomicfoundation/hardhat-toolbox";
+
 import type { HardhatUserConfig } from "hardhat/config";
 import type { NetworkUserConfig } from "hardhat/types";
 import { resolve } from "path";
@@ -37,6 +39,7 @@ const chainIds = {
   "coinex-testnet": 53,
   "klaytn-testnet": 1001,
   "trust-testnet": 15555,
+  "evmos-testnet": 9000,
 };
 
 function getChainConfig(chain: keyof typeof chainIds): NetworkUserConfig {
@@ -54,9 +57,12 @@ function getChainConfig(chain: keyof typeof chainIds): NetworkUserConfig {
     case "klaytn-testnet":
       jsonRpcUrl = "https://api.baobab.klaytn.net:8651";
       break;
-      case "trust-testnet":
-        jsonRpcUrl = "https://api.testnet-dev.trust.one";
-        break;
+    case "trust-testnet":
+      jsonRpcUrl = "https://api.testnet-dev.trust.one";
+      break;
+    case "evmos-testnet":
+      jsonRpcUrl = "https://eth.bd.evmos.dev:8545";
+      break;
     default:
       jsonRpcUrl = "https://" + chain + ".infura.io/v3/" + infuraApiKey;
   }
@@ -118,6 +124,7 @@ const config: HardhatUserConfig = {
     "coinex-testnet": getChainConfig("coinex-testnet"),
     "klaytn-testnet": getChainConfig("klaytn-testnet"),
     "trust-testnet": getChainConfig("trust-testnet"),
+    "evmos-testnet": getChainConfig("evmos-testnet"),
   },
   paths: {
     artifacts: "./artifacts",
