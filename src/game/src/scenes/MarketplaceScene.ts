@@ -25,12 +25,12 @@ export class MarketplaceScene extends Phaser.Scene {
     const partFuel = this.add.image(0, 0, `fuel${car.carCode[7]}`)
 
     const textPrice = this.add
-      .text(20, 145, `${car.price / 1000000} TRX`, {
+      .text(20, 145, `${car.price / 1000000} EVMOS`, {
         fontFamily: 'Electrolize',
         align: 'center',
         wordWrap: { width: 140, useAdvancedWrap: true },
       })
-      .setFontSize(30)
+      .setFontSize(24)
       .setOrigin(0)
       .setColor('#ECE0C4')
 
