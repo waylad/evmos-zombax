@@ -7,7 +7,7 @@ Zombax is zombie smashing game on Evmos with upgradable NFTs and an integrated m
 
 # Demo Video
 
-Uploading....
+https://youtu.be/CVJsQH_pYok
 
 # Play Demo
 
@@ -64,7 +64,7 @@ When upgrading a SMASHER NFT, we simply change the code in its metadata on-chain
 
 # The Map
 
-Each level is also a token! Its metadata contains the configuration of the level from the shape of the terrain to the position and strength of each zombie. Why is that? Because BattleSMASHERs is a metaverse when people can create and sell levels! From the map, you can see all levels and their ratings. The map will itself be another marketplace but for levels. You will be able to see the ratings of each level just like Happy Wheels (See next) so you can choose to purchase a level or not. Levels are NT-NFT, Non-Transfer NFT, you purchase them directly from its creator then you can play the level, but never resell it.
+Each level is also a token! Its metadata contains the configuration of the level from the shape of the terrain to the position and strength of each zombie. Why is that? Because Zombax is a metaverse where people can create and sell levels! From the map, you can see all levels and their ratings. The map will itself be another marketplace but for levels. You will be able to see the ratings of each level just like Happy Wheels (See next) so you can choose to purchase a level or not. Levels are NT-NFT, Non-Transfer NFT, you purchase them directly from its creator then you can play the level, but never resell it.
 
 ![](./src/game/assets/screenshots/happy-wheels.jpeg)
 Image courtesy of Happy Wheels
